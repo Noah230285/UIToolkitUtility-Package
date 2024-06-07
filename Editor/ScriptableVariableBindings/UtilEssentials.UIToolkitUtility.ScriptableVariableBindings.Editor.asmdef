@@ -1,0 +1,19 @@
+{
+    "name": "UtilEssentials.UIToolkitUtility.ScriptableVariableBindings.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a54009155d1e1c547ae80acbd6259626",
+        "GUID:0290009e06b523642ba9df48545ff1b8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "SCRIPTABLE_VARIABLES_ENABLED"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
