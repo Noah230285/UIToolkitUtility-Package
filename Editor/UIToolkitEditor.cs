@@ -25,7 +25,7 @@ namespace UtilEssentials.UIToolkitUtility.Editor
             string beginingPath = UIToolkitUtilityFunctions.GetBeginningOfPackagePath(assetPath, "com.utility_essentials.ui_toolkit_utility");
 
             defaultStyles = AssetDatabase.LoadAssetAtPath<StyleSheet>(
-            $"{beginingPath}/UIToolkitUtility/Assets/Editor/USS/UXMLUtility.uss");
+            $"{beginingPath}/Assets/Editor/USS/UXMLUtility.uss");
             container.styleSheets.Add(defaultStyles);
 
             if (iterator.NextVisible(true))

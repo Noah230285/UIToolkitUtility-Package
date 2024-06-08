@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.PackageManager;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -563,9 +565,19 @@ namespace UtilEssentials.UIToolkitUtility.Editor
 
         public static string GetBeginningOfPackagePath(string loaderAssetPath, string packageName)
         {
-            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssetPath(loaderAssetPath);
+            //var packageInfo = UnityEditor.PackageManager.Client.Search(packageName);
             string startPath;
-            if (packageInfo == null)
+
+            //while (packageInfo.Status == UnityEditor.PackageManager.StatusCode.InProgress)
+            //{
+            //    continue;
+            //}
+
+            var pack = Client.List();
+            while (!pack.IsCompleted) continue;
+            var haveProgrids = pack.Result.FirstOrDefault(q => q.name == packageName);
+
+            if (haveProgrids == null)
             {
                 loaderAssetPath = loaderAssetPath.Replace('\\', '/');
 
@@ -578,7 +590,6 @@ namespace UtilEssentials.UIToolkitUtility.Editor
                 loaderAssetPath = loaderAssetPath.ReverseString();
 
                 int offset = "/stessA/".Length;
-
 
                 int subStringStart = loaderAssetPath.Length - (startIndex + offset - 1);
                 startPath = loaderAssetPath.Substring(subStringStart/* - "/slaitnessEytilitU".Length*/, loaderAssetPath.Length - endIndex - subStringStart);
